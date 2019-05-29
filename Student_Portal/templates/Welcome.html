@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+
+{% if user.username %}
+
+     <a style="margin-left: 1100px;margin-top: 10px" href="{% url 'logout' %}">Log Out</a>
+    <h2>Welcome <div style="color: darkred">{{ user.username }}</div></h2>
+
+    <h3>Add New Student Details <br/> </h3><h3><a href=" {% url 'std:add' %}"> Here </a></h3>
+
+    <table border="">
+    <th> Name</th><th>Age</th><th>College</th><th>Edit</th><th>Delete</th>
+    {% for i in obj %}
+        <tr><td>{{ i.name}}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.college }}</td>
+            <td><a href="{% url 'std:update' i.pk %}">Edit</a></td>
+            <td><a href="{% url 'std:dlete' i.pk %}">Delete</a></td></tr>
+    {%  endfor %}
+    </table>
+
+
+{#    <a href=""#}
+
+ {% else %}
+    <h2>You've been Logged Out..</h2>
+    click <a href="{% url 'login' %}">here</a> To login again
+
+{% endif %}
+{#{%  endblock #}
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<h2>This is Login Page oF OAuth Tool</h2>
+<form method="post">
+    {% csrf_token   %}
+    {{ form.as_table }}
+    <input type="submit" value="LogIn"><br/>
+    Not registered yet?? Signup<a href="{% url 'std:signup' %}">here</a>
+</form>

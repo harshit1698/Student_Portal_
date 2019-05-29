@@ -1,0 +1,34 @@
+
+
+<head>
+    <title>Signup Page</title>
+    <style type="text/css">
+        body{
+            background-color: powderblue;
+        }
+        h1{
+            color: brown;
+            font-family: "fantasy";
+            font-style: oblique;
+        }
+        #h1{
+            background-color: deepskyblue;
+            font-size: 18px;
+            color: darkred;
+        }
+        input:focus{
+            background-color: ivory;
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+<form  method="post">
+    <h1>Sign Up</h1>
+    {%  csrf_token %}
+    {{ form.as_p }}
+    <input id="h1" type="submit" value="Signup">
+    <br/>
+    already registered? Login <a href="{% url 'std:login' %}">here</a>..
+</form>
+</body>
